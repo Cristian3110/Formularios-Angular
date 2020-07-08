@@ -5,14 +5,14 @@
         <div class="form-group row">
             <label class="col-2 col-form-label">Nombre</label>
             <div class="col-8">
-                <input class="form-control" type="text" name="nombre" [class.is-invalid]="nombre.invalid && nombre.touched" [ngModel]="usuario.nombre" placeholder="Nombre" required minlength="5" #nombre="ngModel" />
+                <input class="form-control is-invalid" type="text" name="nombre" [class.is-invalid]="nombre.invalid && nombre.touched" [ngModel]="usuario.nombre" placeholder="Nombre" required minlength="5" #nombre="ngModel" />
             </div>
         </div>
 
         <div class="form-group row">
             <label class="col-2 col-form-label">Apellido</label>
             <div class="col-8">
-                <input class="form-control" type="text" placeholder="Apellido" />
+                <input class="form-control is-invalid" type="text" name="apellido" [class.is-invalid]="apellido.invalid && apellido.touched" [ngModel]="usuario.apellido" placeholder="Apellido" required="5" #apellido="ngModel" />
             </div>
         </div>
     </div>
@@ -20,7 +20,8 @@
     <div class="form-group row">
         <label class="col-2 col-form-label">Correo</label>
         <div class="col-8">
-            <input class="form-control" ngModel type="email" placeholder="Correo electrónico" [class.is-invalid]="correo.invalid && correo.touched" name="correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #correo="ngModel" />
+            <input class="form-control is-invalid" [ngModel]="usuario.correo" type="email" placeholder="Correo electrónico" [class.is-invalid]="correo.invalid && correo.touched" name="correo" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #correo="ngModel" required
+            />
         </div>
     </div>
 
