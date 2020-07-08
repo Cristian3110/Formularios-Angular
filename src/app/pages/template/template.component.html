@@ -24,6 +24,11 @@
           required="5"
           #apellido="ngModel"
         />
+        <small
+          *ngIf="apellido.invalid && apellido.touched"
+          class="form-text text-danger"
+          >Ingrese mínimo 5 letras</small
+        >
       </div>
     </div>
   </div>
@@ -42,6 +47,11 @@
         #correo="ngModel"
         required
       />
+      <small
+        *ngIf="correo.invalid && correo.touched"
+        class="form-text text-danger"
+        >Ingrese un correo válido</small
+      >
     </div>
   </div>
 

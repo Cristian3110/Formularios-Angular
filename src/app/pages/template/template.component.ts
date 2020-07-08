@@ -8,9 +8,9 @@ import { NgForm } from '@angular/forms';
 })
 export class TemplateComponent implements OnInit {
   usuario = {
-    nombre: '',
-    apellido: '',
-    correo: '',
+    nombre: 'cristian',
+    apellido: 'carrillo',
+    correo: 'cristiancarrillo311087@gmail.com',
   };
 
   constructor() {}
@@ -19,6 +19,15 @@ export class TemplateComponent implements OnInit {
 
   guardar(forma: NgForm) {
     console.log(forma);
+    // señalar error en los campos a la hora de guardar sin completar los campos
+    if (forma.invalid) {
+      Object.values(forma.controls).forEach((control) => {
+        // console.log(control);
+        control.markAsTouched();
+      });
+      return;
+    }
+
     console.log(forma.value);
   }
 }
