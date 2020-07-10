@@ -12,7 +12,10 @@ export class TemplateComponent implements OnInit {
     nombre: 'cristian',
     apellido: 'carrillo',
     correo: 'cristiancarrillo311087@gmail.com',
+    pais: '',
   };
+
+  paises: any[];
 
   constructor(private paisService: PaisService) {}
 
@@ -20,12 +23,19 @@ export class TemplateComponent implements OnInit {
     // Here is donde se dispara la petición http, para obetener la información de los paises
 
     this.paisService.getPaises().subscribe((paises) => {
-      console.log(paises);
+      // console.log(paises);
+      this.paises = paises;
+      console.log(this.paises);
+
+      this.paises.unshift({
+        nombre: '[Selecciones un pais]',
+        codigo: '',
+      });
     });
   }
 
   guardar(forma: NgForm) {
-    console.log(forma);
+    // console.log(forma);
     // señalar error en los campos a la hora de guardar sin completar los campos
     if (forma.invalid) {
       Object.values(forma.controls).forEach((control) => {
