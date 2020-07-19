@@ -29,6 +29,20 @@ export class ReactiveComponent implements OnInit {
     return this.forma.get('correo').invalid && this.forma.get('correo').touched;
   }
 
+  get distritoNoValido() {
+    return (
+      this.forma.get('direccion.distrito').invalid &&
+      this.forma.get('direccion.distrito').touched
+    );
+  }
+
+  get ciudadNoValida() {
+    return (
+      this.forma.get('direccion.ciudad').invalid &&
+      this.forma.get('direccion.ciudad').touched
+    );
+  }
+
   crearFormulario() {
     this.forma = this.fb.group({
       nombre: ['', [Validators.required, Validators.minLength(5)]],
@@ -42,7 +56,7 @@ export class ReactiveComponent implements OnInit {
       ],
       direccion: this.fb.group({
         distrito: ['', Validators.required],
-        ciudad: [''],
+        ciudad: ['', Validators.required],
       }),
     });
   }
