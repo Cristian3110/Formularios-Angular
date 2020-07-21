@@ -4,6 +4,7 @@ import {
   FormBuilder,
   Validators,
   FormControl,
+  FormArray,
 } from '@angular/forms';
 
 @Component({
@@ -20,6 +21,10 @@ export class ReactiveComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  get pasatiempos() {
+    return this.forma.get('pasatiempos') as FormArray;
+  }
 
   get nombreNoValido() {
     return this.forma.get('nombre').invalid && this.forma.get('nombre').touched;
@@ -64,6 +69,8 @@ export class ReactiveComponent implements OnInit {
         distrito: ['', Validators.required],
         ciudad: ['', Validators.required],
       }),
+      // Así se declara un arreglo en los formularios
+      pasatiempos: this.fb.array([[], [], [], []]),
     });
   }
 
