@@ -70,7 +70,7 @@ export class ReactiveComponent implements OnInit {
         ciudad: ['', Validators.required],
       }),
       // Así se declara un arreglo en los formularios
-      pasatiempos: this.fb.array([[], [], [], []]),
+      pasatiempos: this.fb.array([]),
     });
   }
 
@@ -86,6 +86,14 @@ export class ReactiveComponent implements OnInit {
         ciudad: 'caracas',
       },
     });
+  }
+
+  agregarPasatiempo() {
+    this.pasatiempos.push(this.fb.control(''));
+  }
+
+  borrarPasatiempo(i: number) {
+    this.pasatiempos.removeAt(i);
   }
 
   guardar() {
